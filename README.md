@@ -22,5 +22,5 @@ Configuration of the main program is possible through the console:
 | -frms | --num_frames | Number of frames captured by trigger |
 | -step | --rotations_step | Frame area rotation step |
 | -rot | --num_of_rotations | Number of frame area rotations |
-| -ip | --server_ip | WMS Server IP |
+| -ip | --server_ip | WMS server IP |
 | -p | --port | WMS server port |
