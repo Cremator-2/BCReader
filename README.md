@@ -19,9 +19,8 @@ Configuration of the main program is possible through the console:
 
 | Short arg. | Long arg. | Description |
 |:----------------|:---------:|----------------:|
-| -frms | --num_frames | По правому краю |
-| -step | --rotations_step | текст |
-| -rot | --num_of_rotations | текст |
-| -step | --rotations_step | текст |
-| -ip | --server_ip | текст |
-| -p | --port | текст |
+| -frms | --num_frames | Number of frames captured by trigger |
+| -step | --rotations_step | Frame area rotation step |
+| -rot | --num_of_rotations | Number of frame area rotations |
+| -ip | --server_ip | WMS Server IP |
+| -p | --port | WMS server port |
