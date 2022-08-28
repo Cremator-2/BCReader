@@ -18,6 +18,6 @@ _Fig. 1 - Detected barcodes_
 Configuration of the main program is possible through the console:
 
 | Short arg. | Long arg. | Description |
-|----------------|:---------:|----------------:|
+|:----------------|:---------:|----------------:|
 | По левому краю | По центру | По правому краю |
 | текст | текст | текст |
