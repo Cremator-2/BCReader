@@ -16,3 +16,8 @@ Implemented the ability to log data. "detect_barcode" is needed for debugging de
 _Fig. 1 - Detected barcodes_
 
 Configuration of the main program is possible through the console:
+
+| Short arg. | Long arg. | Description |
+|----------------|:---------:|----------------:|
+| По левому краю | По центру | По правому краю |
+| текст | текст | текст |
