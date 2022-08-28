@@ -12,6 +12,8 @@ In this work, WMS is modeled by the script test_server.py. Where the BCReader.py
 Implemented the ability to log data. "detect_barcode" is needed for debugging detection parameters.
 
 ![image](https://user-images.githubusercontent.com/112019541/187093523-7f3e5285-e8cd-4b57-af8e-6bd312fc3142.png)
+
 _Fig. 1 - Detected barcodes_
+
 
 Configuration of the main program is possible through the console:
