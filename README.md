@@ -10,3 +10,6 @@ This is necessary in order to solve the problem of reading barcodes rotated at a
 The reading itself takes place when a TCP/IP heartbeat is received from the WMS (Warehouse Management System).
 In this work, WMS is modeled by the script test_server.py. Where the BCReader.py program is the client.
 Implemented the ability to log data. "detect_barcode" is needed for debugging detection parameters.
+
+![image](https://user-images.githubusercontent.com/112019541/187093523-7f3e5285-e8cd-4b57-af8e-6bd312fc3142.png)
+
