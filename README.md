@@ -19,5 +19,9 @@ Configuration of the main program is possible through the console:
 
 | Short arg. | Long arg. | Description |
 |:----------------|:---------:|----------------:|
-| По левому краю | По центру | По правому краю |
-| текст | текст | текст |
+| -frms | --num_frames | По правому краю |
+| -step | --rotations_step | текст |
+| -rot | --num_of_rotations | текст |
+| -step | --rotations_step | текст |
+| -ip | --server_ip | текст |
+| -p | --port | текст |
