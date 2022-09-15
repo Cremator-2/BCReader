@@ -2,7 +2,7 @@
 import cv2
 import imutils
 from pyzbar import pyzbar
-from datetime import datetime
+from datetime import datetime as dt
 import os
 from pyzbar.pyzbar import ZBarSymbol
 import socket
@@ -36,8 +36,7 @@ def create_parser():
 
 def write2txt(text):
 
-    title_log = datetime.now().strftime('%d-%m-%Y')
-    name = 'log/log ' + title_log + '.txt'
+    name = f'log/log {dt.today():%d-%m-%Y}.txt'
     if not os.path.exists('log'):
         os.makedirs('log/decoded')
         os.makedirs('log/detected')
@@ -76,8 +75,7 @@ def decode(image, angle, num_local_frame, num_global_frame):
 
     # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
     if logging:
-        time = datetime.now().strftime('==== Angle: {} ===== Time: %H:%M:%S.%f %p ===='.format(angle))  # %f microsecond
-        write2txt(time)
+        write2txt(f'==== Angle: {angle} ===== Time: {dt.today():%H:%M:%S.%f %p} ====')  # %f microsecond
     # ----------------------------------------------------------------------------------------------
 
     for obj in decoded_objects:
@@ -87,18 +85,14 @@ def decode(image, angle, num_local_frame, num_global_frame):
     # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         if logging:
             # image = draw_barcode(obj, image, barcode)
-            text = "#{}: Type: ".format(num_barcode) + obj.type + ' / Data: ' + barcode
-            write2txt(text)
+            write2txt(f'#{num_barcode}: Type: {obj.type} / Data: {barcode}')
 
     if logging:
-        time_now = datetime.now().strftime('%H-%M-%S.%f_%p %d-%m-%Y')
-        image_path = 'log/decoded/{} {} correct {} {}.png'.format(num_global_frame, num_local_frame, angle, time_now)
+        time_now = f'{dt.today():%H-%M-%S.%f_%p %d-%m-%Y}'
+        image_path = f'log/decoded/{num_global_frame} {num_local_frame} correct {angle} {time_now}.png'
         if num_barcode == 0:
-            image_path = 'log/detected/{} {} incorrect {} {}.png'.format(num_global_frame,
-                                                                         num_local_frame,
-                                                                         angle, time_now)
-            text = 'None'
-            write2txt(text)
+            image_path = f'log/detected/{num_global_frame} {num_local_frame} incorrect {angle} {time_now}.png'
+            write2txt('None')
 
         cv2.imwrite(image_path, image)
     # ----------------------------------------------------------------------------------------------
@@ -115,11 +109,8 @@ def frame_rotation(frames, list_index_global_frms):
 
         # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         if logging:
-            text = '\n------------------------------ GlobalFrame: {} ------------------------------'.\
-                format(list_index_global_frms[count])
-            write2txt(text)
-            text = '  ------------------------- LocalFrame: {} -------------------------\n'.format(count)
-            write2txt(text)
+            write2txt(f'\n----------------------- GlobalFrame: {list_index_global_frms[count]} -----------------------')
+            write2txt(f'    --------------------- LocalFrame: {count} ---------------------\n')
         # ----------------------------------------------------------------------------------------------
 
         for i in range(num_of_rotations):
@@ -137,8 +128,7 @@ def frame_rotation(frames, list_index_global_frms):
                 # ====================================================================
                 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                 if logging:
-                    text = '\n=====================================================================\n'
-                    write2txt(text)
+                    write2txt('\n=====================================================================\n')
                 # ----------------------------------------------------------------------------------------------
                 return
 
@@ -152,8 +142,7 @@ def frame_rotation(frames, list_index_global_frms):
         # ====================================================================
         # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         if logging:
-            text = '\n=====================================================================\n'
-            write2txt(text)
+            write2txt('\n=====================================================================\n')
         # ----------------------------------------------------------------------------------------------
 
 
@@ -221,9 +210,9 @@ def cam_read_and_processing():
         # ====================================================================
         # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         if logging:
-            time = datetime.now().strftime('%H:%M:%S.%f %p')
+            time = f'{dt.today():%H:%M:%S.%f %p}'
             text = '\n=====================================================================\n'
-            text += time + ' None detected'
+            text += f'{time} None detected'
             text += '\n=====================================================================\n'
             write2txt(text)
         # ----------------------------------------------------------------------------------------------
