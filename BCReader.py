@@ -9,16 +9,18 @@ import socket
 import sys
 import argparse
 
+'''
+Global frames its frames captured by the camera
+Local frame its a global frame area where supposedly locate barcode
+
 # ====================================================================
-# TCP/IP data exchange (Client)
+TCP/IP data exchange (Client)
 # ====================================================================
+'''
 
 # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++    Open
 logging = True  # Logging
 # ----------------------------------------------------------------------------------------------    Close
-
-# Global frames its frames captured by the camera
-# Local frame its a global frame area where supposedly locate barcode
 
 
 def create_parser():
