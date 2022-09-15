@@ -37,19 +37,14 @@ def write2txt(text):
     title_log = datetime.now().strftime('%d-%m-%Y')
     name = 'log/log ' + title_log + '.txt'
     if not os.path.exists('log'):
-        os.makedirs('log')
-    if not os.path.exists('log/decoded'):
         os.makedirs('log/decoded')
-    if not os.path.exists('log/detected'):
         os.makedirs('log/detected')
     if os.path.exists(name):
-        file = open(name, 'a')
-        file.write(text + '\n')
-        file.close()
+        with open(name, 'a') as f:
+            f.write(text + '\n')
     else:
-        file = open(name, 'w')
-        file.write(text + '\n')
-        file.close()
+        with open(name, 'w') as f:
+            f.write(text + '\n')
 
 
 def draw_barcode(decoded, image, barcode):
